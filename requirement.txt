@@ -1,5 +1,8 @@
 pandas
 numpy
-seraborn
+seaborn
 matplotlib
 setuptools
+#yaml
+sqlalchemy
+pymysql

@@ -13,6 +13,7 @@ credentials/
 Files/Database_Inhibitor/
 develop-eggs/
 dist/
+logs/
 downloads/
 eggs/
 .eggs/
