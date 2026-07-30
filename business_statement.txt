@@ -1,132 +1,51 @@
-BUSINESS PROBLEMS - GROCERY E-COMMERCE DATASET
-================================================
-Dataset Context: Online grocery platform with orders, products, aisles, departments, and user behavior data.
+# Business Questions
 
-================================================================
-BUSINESS PROBLEM 1: Customer Churn & Retention
-================================================================
-PROBLEM:
-The marketing team wants to know which customers are at risk of churning (stopping purchases).
-"days_since_prior_order" is getting longer for some users — identify them before they leave.
+## 1. Product & Category Performance
 
-BUSINESS QUESTION:
-Which users have increasing gaps between orders, and what product categories are they abandoning?
+* Which products are ordered most frequently?
+* Which departments generate the highest order volume?
+* Which aisles generate the highest order volume?
+* What is the reorder rate by product, aisle, and department?
+* Which departments have:
 
-ANALYSIS TASKS:
-- Calculate average days_since_prior_order per user over time
-- Flag users whose order frequency is declining
-- Identify which departments/aisles those users shop in less
-- Segment users: Active, At-Risk, Churned
+  * High order volume but low reorder rate?
+  * Low order volume but high reorder rate?
 
-BUSINESS VALUE:
-Enables targeted retention campaigns (e.g., discount coupons sent to at-risk users).
-Estimated impact: Even retaining 5% of at-risk users can significantly boost monthly revenue.
+---
 
-================================================================
-BUSINESS PROBLEM 2: Product Reorder Optimization (Inventory & Recommendations)
-================================================================
-PROBLEM:
-The supply chain team needs to know which products are frequently reordered so they can
-ensure stock availability. The product team wants a "reorder reminder" feature.
+## 2. Customer Purchase Behavior
 
-BUSINESS QUESTION:
-Which products have the highest reorder rates, and at what intervals do customers reorder them?
+* What is the distribution of orders per customer?
+* What is the average `days_since_prior_order`?
+* What is the average basket size (items per order)?
 
-ANALYSIS TASKS:
-- Calculate reorder rate per product (reordered=1 / total orders)
-- Combine with days_since_prior_order to estimate reorder intervals
-- Identify top reordered products by department and aisle
-- Find products with high reorder rate but frequent stockouts (out-of-scope but flagged)
+---
 
-BUSINESS VALUE:
-- Inventory: Prioritize stocking high-reorder products
-- Product feature: "It's time to reorder your Milk!" push notification
-- Revenue: Increasing reorder convenience directly increases order frequency
+## 3. Temporal Analysis
 
-================================================================
-BUSINESS PROBLEM 3: Market Basket Analysis (Cross-Sell & Upsell)
-================================================================
-PROBLEM:
-The product and marketing team wants to increase average order value by recommending
-products that are frequently bought together.
+* Which day of the week has the highest order volume?
+* Which hour of the day has the highest order volume?
+* How do order patterns vary by day and hour?
 
-BUSINESS QUESTION:
-What products are most commonly added to the same order, and can we identify strong
-product pairings across departments?
+---
 
-ANALYSIS TASKS:
-- Use order_products data to find co-occurrence of product pairs per order
-- Calculate support, confidence, and lift for product associations
-- Identify cross-department pairings (e.g., specialty cheese + prepared soups)
-- Rank top 10 product bundle recommendations
+## 4. Reorder Behavior
 
-BUSINESS VALUE:
-- "Customers also bought..." recommendation engine
-- Bundle promotions to increase basket size
-- Targeted upsell ads based on what's already in the cart
+* What percentage of ordered items are reorders?
+* Which products have the highest reorder rates?
+* Does `add_to_cart_order` influence reorder likelihood?
 
-================================================================
-BUSINESS PROBLEM 4: Peak Demand Forecasting (Operations)
-================================================================
-PROBLEM:
-The operations team needs to staff appropriately and ensure delivery capacity during
-peak hours and days. Over- or under-staffing costs money.
+---
 
-BUSINESS QUESTION:
-When (day of week and hour of day) do most orders occur, and how does this vary by
-user segment or product category?
+## 5. Market Basket Analysis
 
-ANALYSIS TASKS:
-- Aggregate orders by order_dow (day of week) and order_hour_of_day
-- Create heatmap of order volume: day vs. hour
-- Segment by new vs. returning customers (order_number = 1 vs. higher)
-- Identify if certain departments (e.g., frozen food) peak at different times
+* Which product pairs are most frequently purchased together?
+* Which aisles or departments commonly co-occur in the same order?
 
-BUSINESS VALUE:
-- Staffing: Schedule more pickers/delivery drivers during peak windows
-- Marketing: Run flash sales during off-peak hours to balance load
-- Infrastructure: Auto-scale servers during predicted high-traffic periods
+---
 
-================================================================
-BUSINESS PROBLEM 5: New User Behavior & Onboarding Success
-================================================================
-PROBLEM:
-The growth team wants to understand what new users (order_number = 1) buy in their
-first order and whether first-order behavior predicts long-term retention.
+## 6. Department & Aisle Segmentation
 
-BUSINESS QUESTION:
-Do users who buy from certain departments in their first order have higher lifetime
-order counts? What does a "successful" first order look like?
-
-ANALYSIS TASKS:
-- Isolate first orders (order_number = 1) per user
-- Map products to departments and aisles
-- Compare department mix of first order vs. users who made 5+ orders
-- Identify the "golden path" — what top retained users bought first
-
-BUSINESS VALUE:
-- Onboarding: Curate first-order product suggestions to increase retention
-- Acquisition: Target ads toward users likely to buy high-retention product categories
-- UX: Design new user homepage around departments that drive long-term engagement
-
-================================================================
-SUMMARY TABLE
-================================================================
-#  | Business Problem                  | Stakeholder         | Priority
----|-----------------------------------|---------------------|----------
-1  | Customer Churn & Retention        | Marketing           | High
-2  | Reorder Optimization              | Supply Chain/Product| High
-3  | Market Basket Analysis            | Product/Marketing   | Medium
-4  | Peak Demand Forecasting           | Operations          | Medium
-5  | New User Onboarding Analysis      | Growth Team         | High
-================================================================
-NOTE FOR YOUR PROJECT
-================================================================
-For a strong DA project, pick 1-2 problems and go deep:
-- Clear problem statement
-- SQL or Python analysis
-- Visualizations (charts, heatmaps)
-- Business recommendation based on findings
-
-Recommended combo: Problem 1 (Churn) + Problem 3 (Basket Analysis)
-These two together tell a story: who is leaving AND what we can do to keep them.
+* Rank departments by total items sold.
+* Rank aisles by total items sold.
+* Identify the top 5 products in each department.
