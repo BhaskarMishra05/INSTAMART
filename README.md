@@ -1,4 +1,4 @@
-# Instacart Market Basket Analysis
+# InstaMart Market Basket Analysis
 
 ![Python](https://img.shields.io/badge/Python-3.x-3e5c76?style=flat-square)
 ![pandas](https://img.shields.io/badge/pandas-EDA-3e5c76?style=flat-square)
@@ -6,7 +6,7 @@
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-3e5c76?style=flat-square)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-3e5c76?style=flat-square)
 
-An end-to-end data analysis project on the Instacart Market Basket dataset. It works through a specific set of business questions about customer ordering behavior, product performance, and reorder dynamics, and turns the findings into concrete recommendations rather than stopping at charts.
+An end-to-end data analysis project on the InstaMart Market Basket dataset. It works through a specific set of business questions about customer ordering behavior, product performance, and reorder dynamics, and turns the findings into concrete recommendations rather than stopping at charts.
 
 This README is meant to stand on its own: it covers the problem, the approach, how the data moves through the project, the folder structure, and the headline insights and recommendations, so that anyone looking at the repository gets the full picture without needing to open the report file.
 
@@ -42,7 +42,7 @@ This project works through those questions using the raw order data and closes w
 
 ## Dataset
 
-The analysis uses the Instacart Market Basket dataset, structured as a star schema with one fact table and several dimension tables.
+The analysis uses the InstaMart Market Basket dataset, structured as a star schema with one fact table and several dimension tables.
 
 | Table | Description |
 |---|---|
@@ -98,7 +98,7 @@ The direct-read path was chosen after benchmarking showed it to be roughly 85 pe
 │       instamart-ipnb(1).ipynb
 │
 ├───Report
-│       Instacart_Business_Analysis_Report.pdf
+│       InstaMart_Business_Analysis_Report.pdf
 │
 └───src
         data_inhibition.py
@@ -114,7 +114,7 @@ The direct-read path was chosen after benchmarking showed it to be roughly 85 pe
 | `Documents/hld_document.pdf` | High-level design: system architecture and component responsibilities. |
 | `Documents/lld_documnet.pdf` | Low-level design: detailed process flow and module-level breakdown. |
 | `Notebooks/instamart-ipnb(1).ipynb` | The primary EDA notebook, organized into five sections with a chart and written insight for each business question. |
-| `Report/Instacart_Business_Analysis_Report.pdf` | The business-facing report: problem statement, insights, and recommendations for stakeholders. |
+| `Report/InstaMart_Business_Analysis_Report.pdf` | The business-facing report: problem statement, insights, and recommendations for stakeholders. |
 | `src/data_inhibition.py` | Loads the raw CSVs into MySQL. |
 | `src/utilities.py` | Shared helper functions, including the SQLAlchemy engine setup used for database access and the direct pandas read path used for analysis. |
 | `src/logger.py` | Centralized logging configuration used across ingestion and processing. |
@@ -162,7 +162,7 @@ The notebook is organized around five business questions, each broken into sub-q
 
 ## Reports and Documentation
 
-- **Business report** — `Report/Instacart_Business_Analysis_Report.pdf`: problem statement, insights, and recommendations for stakeholders, with supporting charts for every finding.
+- **Business report** — `Report/InstaMart_Business_Analysis_Report.pdf`: problem statement, insights, and recommendations for stakeholders, with supporting charts for every finding.
 - **High-level design** — `Documents/hld_document.pdf`: system architecture and component responsibilities.
 - **Low-level design** — `Documents/lld_documnet.pdf`: detailed process flow and module-level breakdown.
 - **Business problem statement** — `business_statement.txt`.
